@@ -46,7 +46,7 @@ Bots are how external services (like n8n) send you messages. You create bots thr
 Done! Congratulations on your new bot. You will find it at t.me/my_alerts_12345_bot.
 
 Use this token to access the HTTP API:
-1112223334:ABCdefGHIjklMNOpqrSTUvwxYZAbcDEFghi
+8389233291:AAHnLwYin742gdFyGA1P7Gfb4ilyo92xWls
 ```
 
 ⚠️ **Keep this token secret!** Anyone with it can control your bot.
@@ -63,7 +63,7 @@ Your Chat ID tells the bot WHERE to send messages (to you specifically).
 2. Start a chat and send any message
 3. It replies with your info including:
 ```
-   Id: 1234567890
+   Id: 7193373883
    First: YourName
 ```
 4. Save that **Id number** - this is your Chat ID
@@ -94,6 +94,47 @@ Without this step, you'll get "chat not found" errors.
 
 ---
 
+## Part 4.1: How to Revoke (Invalidate) a Bot Token
+
+If a token is exposed, leaked, or stored insecurely, revoke it immediately. Revocation instantly disables the old token; any service using it (including n8n) will fail authentication until updated. :contentReference[oaicite:0]{index=0}
+
+### Steps (via BotFather)
+
+1. Open Telegram and search for `@BotFather`
+2. Start chat if not already open
+3. Send the command:
+```
+/mybots
+```
+4. Select your bot from the list
+5. Tap **API Token**
+6. Choose **Revoke current token**
+7. BotFather will automatically generate a **new token**
+8. Copy the new token and update it in **n8n → Credentials → Telegram API**
+9. Save the credential and retest
+
+---
+
+### What Happens After Revocation
+
+- Old token becomes permanently invalid
+- Any system using the old token returns **401 Unauthorized**
+- Bot settings, chat history, and configuration remain unchanged
+- Only the authentication key is replaced
+
+---
+
+### Post-Revocation Checklist
+
+- [ ] Token updated in n8n credentials
+- [ ] Telegram node tested successfully
+- [ ] Old token removed from notes, logs, and files
+- [ ] Environment variables updated (if used)
+
+Treat token revocation the same as rotating a compromised password.
+
+---
+
 ## Part 5: Configure n8n Credentials
 
 ### Add Telegram Credential
@@ -105,7 +146,7 @@ Without this step, you'll get "chat not found" errors.
 5. Fill in:
    - **Access Token:** Your bot token from BotFather
 ```
-     1112223334:ABCdefGHIjklMNOpqrSTUvwxYZAbcDEFghi
+     8389233291:AAHnLwYin742gdFyGA1P7Gfb4ilyo92xWls
 ```
    - **Base URL:** Leave as default (`https://api.telegram.org`)
 6. Click **Save**
@@ -133,7 +174,7 @@ Without this step, you'll get "chat not found" errors.
 1. **Credential:** Select the Telegram credential you created
 2. **Resource:** Message
 3. **Operation:** Send Message
-4. **Chat ID:** Your chat ID (e.g., `1234567890`)
+4. **Chat ID:** Your chat ID (e.g., `7193373883`)
 5. **Text:** Your message content
    - Can include dynamic data: `Price is now: {{ $json.price }}`
    - Supports basic formatting (see below)
@@ -199,7 +240,7 @@ _italic text_
 **Cause:** Token format issue or network problem
 
 **Fix:**
-1. Token should look like: `1112223334:AAHxxxxxxxxxxxxxxxxxxxxxxx`
+1. Token should look like: `1234567890:AAHxxxxxxxxxxxxxxxxxxxxxxx`
 2. Must include the colon
 3. Check your n8n instance has internet access
 
@@ -224,8 +265,8 @@ Telegram limits bots to ~30 messages/second. For high-volume alerts:
 
 | Item | Example | Where to Get |
 |------|---------|--------------|
-| Bot Token | `1112223334:AAHnLw...xWls` | @BotFather → /newbot |
-| Chat ID | `1234567890` | @userinfobot |
+| Bot Token | `8389233291:AAHnLw...xWls` | @BotFather → /newbot |
+| Chat ID | `7193373883` | @userinfobot |
 | Bot Username | `@my_alerts_bot` | You choose during creation |
 
 ### Useful BotFather Commands
