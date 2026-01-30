@@ -46,7 +46,7 @@ Bots are how external services (like n8n) send you messages. You create bots thr
 Done! Congratulations on your new bot. You will find it at t.me/my_alerts_12345_bot.
 
 Use this token to access the HTTP API:
-8389233291:AAHnLwYin742gdFyGA1P7Gfb4ilyo92xWls
+1234567890:ABCdefGHIjklMNOpqrSTUvwxYZAbcDEFghi
 ```
 
 ⚠️ **Keep this token secret!** Anyone with it can control your bot.
