@@ -46,7 +46,7 @@ Bots are how external services (like n8n) send you messages. You create bots thr
 Done! Congratulations on your new bot. You will find it at t.me/my_alerts_12345_bot.
 
 Use this token to access the HTTP API:
-1234567890:ABCdefGHIjklMNOpqrSTUvwxYZAbcDEFghi
+1112223334:ABCdefGHIjklMNOpqrSTUvwxYZAbcDEFghi
 ```
 
 ⚠️ **Keep this token secret!** Anyone with it can control your bot.
@@ -63,7 +63,7 @@ Your Chat ID tells the bot WHERE to send messages (to you specifically).
 2. Start a chat and send any message
 3. It replies with your info including:
 ```
-   Id: 7193373883
+   Id: 1234567890
    First: YourName
 ```
 4. Save that **Id number** - this is your Chat ID
@@ -105,7 +105,7 @@ Without this step, you'll get "chat not found" errors.
 5. Fill in:
    - **Access Token:** Your bot token from BotFather
 ```
-     8389233291:AAHnLwYin742gdFyGA1P7Gfb4ilyo92xWls
+     1112223334:ABCdefGHIjklMNOpqrSTUvwxYZAbcDEFghi
 ```
    - **Base URL:** Leave as default (`https://api.telegram.org`)
 6. Click **Save**
@@ -133,7 +133,7 @@ Without this step, you'll get "chat not found" errors.
 1. **Credential:** Select the Telegram credential you created
 2. **Resource:** Message
 3. **Operation:** Send Message
-4. **Chat ID:** Your chat ID (e.g., `7193373883`)
+4. **Chat ID:** Your chat ID (e.g., `1234567890`)
 5. **Text:** Your message content
    - Can include dynamic data: `Price is now: {{ $json.price }}`
    - Supports basic formatting (see below)
@@ -199,7 +199,7 @@ _italic text_
 **Cause:** Token format issue or network problem
 
 **Fix:**
-1. Token should look like: `1234567890:AAHxxxxxxxxxxxxxxxxxxxxxxx`
+1. Token should look like: `1112223334:AAHxxxxxxxxxxxxxxxxxxxxxxx`
 2. Must include the colon
 3. Check your n8n instance has internet access
 
@@ -224,8 +224,8 @@ Telegram limits bots to ~30 messages/second. For high-volume alerts:
 
 | Item | Example | Where to Get |
 |------|---------|--------------|
-| Bot Token | `8389233291:AAHnLw...xWls` | @BotFather → /newbot |
-| Chat ID | `7193373883` | @userinfobot |
+| Bot Token | `1112223334:AAHnLw...xWls` | @BotFather → /newbot |
+| Chat ID | `1234567890` | @userinfobot |
 | Bot Username | `@my_alerts_bot` | You choose during creation |
 
 ### Useful BotFather Commands
